@@ -10,8 +10,10 @@ class NumberButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
         onPressed: () {
-          var r = container.read(calculatorModelProvider.notifier);
-          r.addNumber(number);
+          // for accessing provider we have two ways:
+          // 1 : use Consumer or ConsumerWidget and access providers with ref param
+          // 2 : use ProviderContainer and access providers with container object.
+          container.read(calculatorModelProvider.notifier).addNumber(number);
           // or use :
           // ref.read(calculatorModelProvider.notifier).addNumber(number);
         },
